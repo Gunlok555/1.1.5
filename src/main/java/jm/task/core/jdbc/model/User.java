@@ -8,18 +8,14 @@ import javax.persistence.Table;
 public class User {
     @Id
     private Long id;
-
     @Column
     private String name;
-
     @Column
     private String lastName;
-
     @Column
     private Byte age;
 
     public User() {
-
     }
 
     public User(String name, String lastName, Byte age) {
@@ -29,7 +25,7 @@ public class User {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -37,7 +33,7 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -45,7 +41,7 @@ public class User {
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -53,10 +49,16 @@ public class User {
     }
 
     public Byte getAge() {
-        return age;
+        return this.age;
     }
 
     public void setAge(Byte age) {
         this.age = age;
     }
+    public String toString() {
+
+        return String.format("User с именем – " + name + " добавлен в базу данных");
+
+    }
+
 }
