@@ -7,19 +7,20 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class Util {
-      private static SessionFactory sessionFactory = null;
+    private static SessionFactory sessionFactory = null;
 
     public static SessionFactory getConnection() {
+        if(sessionFactory == null) {
+            try {
+                Configuration configuration = new Configuration().addAnnotatedClass(User.class);
 
-        try {
-            Configuration configuration = new Configuration().addAnnotatedClass(User.class);
-
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .applySettings(configuration.getProperties()).build();
-            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-            System.out.println("Соединение установлено!");
-        } catch (HibernateException e) {
-            e.printStackTrace();
+                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                        .applySettings(configuration.getProperties()).build();
+                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+                System.out.println("Соединение установлено!");
+            } catch (HibernateException e) {
+                e.printStackTrace();
+            }
         }
         return sessionFactory;
     }
