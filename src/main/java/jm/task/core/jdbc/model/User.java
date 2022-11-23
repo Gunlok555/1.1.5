@@ -11,9 +11,7 @@ public class User {
     private Long id;
     @Column(name = "name")
     private String name;
-    // Вы указали на ошибку: @Column(name = "lastName") - принято двойные имена писать через _. CamelCase хибер может не распознатть
-    // исправил как @Column(name = "last_Name"), после чего час промучался, не мог понять почему все сломалось)))
-    // оставил просто  @Column все заработало. Я не там _ поставил? Подскажите пж!
+
     @Column
     private String lastName;
     @Column(name = "age")
