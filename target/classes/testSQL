@@ -1,3 +1,0 @@
-testKata.url = jdbc:mysql://localhost:3306/testKata;
-testKata.username = root
-testKata.password = root
